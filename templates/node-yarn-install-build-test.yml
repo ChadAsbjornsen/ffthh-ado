@@ -1,0 +1,10 @@
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    yarn install
+    yarn build
+    yarn citest
+  displayName: 'yarn install, build, and test'

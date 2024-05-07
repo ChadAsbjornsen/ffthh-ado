@@ -18,17 +18,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '20.x'
-  displayName: 'Install Node.js'
-
-- script: |
-    yarn install
-    yarn build
-    yarn citest
-  displayName: 'yarn install, build, and test'
-
+- template: templates/node-yarn-install-build-test.yml
 - task: AzureCLI@2
   displayName: Upload to Azure Storage Account
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
