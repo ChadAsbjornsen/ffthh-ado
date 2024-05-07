@@ -4,8 +4,13 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 variables:
-- group: chad-ffthh
-
+- name: storageAccount
+  value: casbjornsenffthh
+- name: storageContainer
+  value: $web
+- name: subscriptionName
+  value: AzureServiceConnection
+  
 trigger:
 - main
 
